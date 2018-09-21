@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}Welcome!{% endblock %}</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+
+  <!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+{% block stylesheets %}
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="css/flexslider.css">
+	<!-- Flaticons  -->
+	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="../css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	<style>
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+	{% endblock %}
+	</head>
+	<body>
+	<div id="colorlib-page">
+		<div class="container-wrap">
+		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
+		<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
+	{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+							{{ app.user.username }} 
+       							 <a href="">Deconnection</a>
+       					<br>
+       					<br>
+			<div class="text-center">
+				<div class="author-img" style="background-image: url(images/qq.png);"></div>
+				
+			</div>
+			
+       							 
+			<nav id="colorlib-main-menu" role="navigation" class="navbar">
+
+				<div id="navbar" class="collapse">
+					<ul>
+						
+						<li><a href="{{ path('cree_machine', {'byFirstname': app.user.firstname }) }}" data-nav-section="ajoute">Ajouter Machine</a></li>
+						<li><a href="{{ path('machine') }}" data-nav-section="categorie">Categorie d'Elements</a></li>
+					</ul>
+				</div>
+			</nav>
+				
+		{% else %}	
+			<div class="text-center">
+				<div class="author-img" style="background-image: url(images/questions-to-ask1.png);"></div>
+				
+			</div>
+        				<nav id="colorlib-main-menu" role="navigation" class="navbar">
+				
+				<div id="navbar" class="collapse">
+					<ul>
+						
+						<li><a href="" data-nav-section="about">Connection</a></li>
+						<li><a href="" data-nav-section="contact">Contact</a></li>
+					</ul>
+				</div>
+			</nav>
+
+			 {% endif %}
+       
+
+		</aside>
+
+		<div id="colorlib-main">
+				
+			<section class="colorlib-services" data-section="services">
+					{% block body %}{% endblock %}
+       				 {% block javascripts %}{% endblock %}
+			</section>
+			
+		
+			
+
+		</div><!-- end:colorlib-main -->
+	</div><!-- end:container-wrap -->
+	</div><!-- end:colorlib-page -->
+
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="js/jquery.flexslider-min.js"></script>
+	<!-- Owl carousel -->
+	<script src="js/owl.carousel.min.js"></script>
+	<!-- Counters -->
+	<script src="js/jquery.countTo.js"></script>
+	
+	
+	<!-- MAIN JS -->
+	<script src="js/main.js"></script>
+
+	</body>
+</html>
+
+    </body>
+</html>

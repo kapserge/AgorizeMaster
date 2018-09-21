@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	{% set cui = 'Cuisine' %}
+	{% set Salon = 'Salon' %}
+	{% set Chambre = 'Chambre' %}
+	{% set Balcon = 'Balcon' %}
+
+	<section class="colorlib-about" data-section="about">
+		<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+							
+							<h2 class="colorlib-heading">Selection la piece</h2>
+						</div>
+				<div class="colorlib-narrow-content">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="col-md-12">
+									
+								</div>
+							</div>
+							<div class="row">
+								<a href="{{ path('user_firstname', {'byFirstname': app.user.firstname }) }}?categorie=Cuisine">
+								<div class="col-md-3 animate-box" data-animate-effect="fadeInLeft">
+									<div class="services color-1">
+										<span class="icon2"><i class="icon-bulb"></i></span>
+										<h3>Cuisine</h3>
+									</div>
+								</div></a>
+								<a href="{{ path('user_firstname', {'byFirstname': app.user.firstname }) }}?categorie=Chambre">
+								<div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
+									<div class="services color-2">
+										<span class="icon2"><i class="icon-globe-outline"></i></span>
+										<h3>Chambre</h3>
+									</div>
+								</div></a>
+								<a href="{{ path('user_firstname', {'byFirstname': app.user.firstname }) }}?categorie=Salon">
+								<div class="col-md-3 animate-box" data-animate-effect="fadeInTop">
+									<div class="services color-3">
+										<span class="icon2"><i class="icon-data"></i></span>
+										<h3>Salon</h3>
+									</div></a>
+								</div>
+								<a href="{{ path('user_firstname', {'byFirstname': app.user.firstname}) }}?categorie=Balcon">
+								<div class="col-md-3 animate-box" data-animate-effect="fadeInBottom">
+									<div class="services color-4">
+										<span class="icon2"><i class="icon-phone3"></i></span>
+										<h3>Balcon</h3></a>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+{% endblock %}

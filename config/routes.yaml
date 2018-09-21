@@ -1,0 +1,5 @@
+index:
+   path: /Game
+   controller: App\Controller\GameController::index
+logout:
+    path: /logout

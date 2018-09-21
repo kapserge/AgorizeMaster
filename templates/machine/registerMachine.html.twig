@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div>
+
+        {{ form_start(form) }}
+        {{ form_row(form.Nom) }}
+        {{ form_row(form.HeureDebut) }}
+        {{ form_row(form.HeureFin) }}
+        {{ form_row(form.Activation) }}
+        {{ form_row(form.categorie) }}
+        {{ form_row(form.submit) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

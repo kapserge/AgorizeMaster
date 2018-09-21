@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+   
+    <section class="colorlib-services" data-section="services">
+				<div class="colorlib-narrow-content">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+							<span class="heading-meta">Liste de Machine</span>
+							<h2 class="colorlib-heading">Liste de Machine</h2>
+						</div>
+					</div>
+				{% for machine in users.machines if machine.categorie == categorie %}
+
+					<div class="row row-pt-md">
+						<div class="col-md-4 text-center animate-box">
+							<div class="services color-1">
+								<span class="icon">
+									<i class="icon-bulb"></i>
+								</span>
+								<div class="desc" id="{{ machine.id }}">
+									<h3>{{ machine.nom }}</h3>
+									<label for="appt-time">Veuillez choisir une heure d'alimentation:</label>
+									<input id="appt-time" type="time" name="appt-time" >
+									<label for="startTime">fin : </label>
+									<input type="time" id="startTime">
+											<input type="date" name="the_date">
+											<label class="switch">
+											  <input type="checkbox" onChange="myFunction({{ machine.id }}, this)">
+											  <span class="slider"></span>
+											</label>
+
+								</div>
+							</div>
+						</div>
+					</div>
+					
+       
+   				{% endfor %}
+						
+						
+					</div>
+				</div>
+			</section>
+			
+
+{% endblock %}
+{% block javascripts %}
+    <script src="...">
+    		var timeControl = document.querySelector('input[type="time"]');
+			timeControl.value = '15:30';var startTime = document.getElementById("startTime");
+			var valueSpan = document.getElementById("value");
+			startTime.addEventListener("input", function() {
+  				valueSpan.innerText = startTime.value;}, false);
+	function myFunction(x, _this) {
+			  if (_this.checked) {
+			    x.style.backgroundColor = '#0000FF';
+			  
+			  }
+	}
+    </script>
+{% endblock %}
+
